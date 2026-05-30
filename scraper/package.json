@@ -1,0 +1,15 @@
+{
+  "name": "amazon-coupon-scraper",
+  "version": "1.0.0",
+  "description": "Scrapes Amazon Associates PromoHub and outputs deal JSON",
+  "main": "scrape.js",
+  "scripts": {
+    "start-chrome": "powershell -Command \"Get-Process chrome -ErrorAction SilentlyContinue | Stop-Process -Force; Start-Sleep 2; Start-Process 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe' -ArgumentList '--remote-debugging-port=9222','--user-data-dir=C:\\Users\\vesko\\AppData\\Local\\Google\\Chrome\\User Data','--profile-directory=Default'\"",
+    "start": "node scrape.js"
+  },
+  "dependencies": {
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "puppeteer": "^22.0.0"
+  }
+}

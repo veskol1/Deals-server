@@ -41,3 +41,9 @@ ESLint enforces the Google JS style guide. Key rules:
 - Restricted globals: `name`, `length`
 
 Lint runs automatically before every `deploy`.
+
+## Scraper
+
+`scraper/scrape.js` — Puppeteer script that scrapes Amazon Associates PromoHub and outputs deal JSON to `scraper/output.json`.
+
+**Price fields:** `price` and `realPrice` are both set to the raw price scraped from the product page. No discount calculation is done in the scraper — the client computes the final price using `couponExtra` (e.g. `price * (1 - couponExtra)`).
