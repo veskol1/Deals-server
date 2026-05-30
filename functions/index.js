@@ -1,15 +1,17 @@
 
 const {onRequest} = require("firebase-functions/v2/https");
+const {defineSecret} = require("firebase-functions/params");
 const logger = require("firebase-functions/logger");
-require("dotenv").config();
 
+const aak = defineSecret("AAK");
+const ask = defineSecret("ASK");
 
-exports.main = onRequest((request, response) => {
+exports.main = onRequest({secrets: [aak, ask]}, (request, response) => {
   logger.info("Hello logs!", {structuredData: true});
   response.json([
     {
-      "aak": process.env.AAK,
-      "ask": process.env.ASK,
+      "aak": aak.value(),
+      "ask": ask.value(),
     },
     {
       "id": "B0CFB132B5",
@@ -20,7 +22,7 @@ exports.main = onRequest((request, response) => {
       "link": "https://amzn.to/3FXGkur",
       "imageDeal": "https://m.media-amazon.com/images/I/61hPx+wF99L._AC_SY695_.jpg",
       "couponText": "50SQPIZD6190",
-      "couponEndTimeEpoch": 1744059600,
+      "couponEndTimeEpoch": 1782808908,
       "couponExtra": 0.5,
     },
     {
